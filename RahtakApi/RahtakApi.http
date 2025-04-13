@@ -1,0 +1,6 @@
+@RahtakApi_HostAddress = http://localhost:5273
+
+GET {{RahtakApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

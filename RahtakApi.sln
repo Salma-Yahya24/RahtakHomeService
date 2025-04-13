@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RahtakApi", "RahtakApi\RahtakApi.csproj", "{74BF4C6B-B361-4835-8179-301C90DF5FF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RahtakApi.DAL", "RahtalApi.DAL\RahtakApi.DAL.csproj", "{3FBB0503-9831-4996-97A7-39D82014BE2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RahtakApi.Entities", "RahtakApi.Entities\RahtakApi.Entities.csproj", "{2C732C32-81CA-4752-AD19-BB5A25827741}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74BF4C6B-B361-4835-8179-301C90DF5FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BF4C6B-B361-4835-8179-301C90DF5FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BF4C6B-B361-4835-8179-301C90DF5FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BF4C6B-B361-4835-8179-301C90DF5FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FBB0503-9831-4996-97A7-39D82014BE2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FBB0503-9831-4996-97A7-39D82014BE2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FBB0503-9831-4996-97A7-39D82014BE2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FBB0503-9831-4996-97A7-39D82014BE2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C732C32-81CA-4752-AD19-BB5A25827741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C732C32-81CA-4752-AD19-BB5A25827741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C732C32-81CA-4752-AD19-BB5A25827741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C732C32-81CA-4752-AD19-BB5A25827741}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
