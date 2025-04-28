@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "RahtakApi.Controllers.AddressContollor",
+    "ContainingType": "RahtakApi.Controllers.AddressController",
     "Method": "GetAddresses",
-    "RelativePath": "api/AddressContollor",
+    "RelativePath": "api/Address",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -10,25 +10,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.AddressContollor",
+    "ContainingType": "RahtakApi.Controllers.AddressController",
     "Method": "CreateAddress",
-    "RelativePath": "api/AddressContollor",
+    "RelativePath": "api/Address",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "address",
-        "Type": "RahtakApi.Entities.Models.Address",
+        "Name": "shippingAddress",
+        "Type": "RahtakApi.Entities.DTOs.ShippingAddress",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.AddressContollor",
+    "ContainingType": "RahtakApi.Controllers.AddressController",
     "Method": "GetAddress",
-    "RelativePath": "api/AddressContollor/{id}",
+    "RelativePath": "api/Address/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -42,9 +42,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.AddressContollor",
+    "ContainingType": "RahtakApi.Controllers.AddressController",
     "Method": "UpdateAddress",
-    "RelativePath": "api/AddressContollor/{id}",
+    "RelativePath": "api/Address/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -55,17 +55,17 @@
         "IsRequired": true
       },
       {
-        "Name": "address",
-        "Type": "RahtakApi.Entities.Models.Address",
+        "Name": "shippingAddress",
+        "Type": "RahtakApi.Entities.DTOs.ShippingAddress",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.AddressContollor",
+    "ContainingType": "RahtakApi.Controllers.AddressController",
     "Method": "DeleteAddress",
-    "RelativePath": "api/AddressContollor/{id}",
+    "RelativePath": "api/Address/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -146,7 +146,7 @@
     "Parameters": [
       {
         "Name": "booking",
-        "Type": "RahtakApi.Entities.Models.Booking",
+        "Type": "Booking",
         "IsRequired": true
       }
     ],
@@ -182,8 +182,8 @@
         "IsRequired": true
       },
       {
-        "Name": "booking",
-        "Type": "RahtakApi.Entities.Models.Booking",
+        "Name": "bookingUpdate",
+        "Type": "RahtakApi.Entities.DTOs.BookingUpdate",
         "IsRequired": true
       }
     ],
@@ -203,6 +203,32 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RahtakApi.Controllers.BookingController",
+    "Method": "BookSubService",
+    "RelativePath": "api/Booking/BookSubService",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RahtakApi.Entities.DTOs.BookSubService",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RahtakApi.Controllers.BookingController",
+    "Method": "GetMyBookings",
+    "RelativePath": "api/Booking/MyBookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -461,8 +487,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "payment",
-        "Type": "RahtakApi.Entities.Models.Payments",
+        "Name": "paymentDetails",
+        "Type": "RahtakApi.Entities.DTOs.PaymentDetails",
         "IsRequired": true
       }
     ],
@@ -498,8 +524,8 @@
         "IsRequired": true
       },
       {
-        "Name": "payment",
-        "Type": "RahtakApi.Entities.Models.Payments",
+        "Name": "paymentDetails",
+        "Type": "RahtakApi.Entities.DTOs.PaymentDetails",
         "IsRequired": true
       }
     ],
@@ -619,9 +645,24 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "serviceGroup",
-        "Type": "RahtakApi.Entities.Models.ServiceGroups",
-        "IsRequired": true
+        "Name": "ServiceGroupName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -656,9 +697,24 @@
         "IsRequired": true
       },
       {
-        "Name": "serviceGroup",
-        "Type": "RahtakApi.Entities.Models.ServiceGroups",
-        "IsRequired": true
+        "Name": "ServiceGroupName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -838,9 +894,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.SubServicesControllor",
+    "ContainingType": "RahtakApi.Controllers.SubServicesController",
     "Method": "GetSubServices",
-    "RelativePath": "api/SubServicesControllor",
+    "RelativePath": "api/SubServices",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -848,9 +904,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.SubServicesControllor",
+    "ContainingType": "RahtakApi.Controllers.SubServicesController",
     "Method": "CreateSubService",
-    "RelativePath": "api/SubServicesControllor",
+    "RelativePath": "api/SubServices",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -864,9 +920,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.SubServicesControllor",
+    "ContainingType": "RahtakApi.Controllers.SubServicesController",
     "Method": "GetSubService",
-    "RelativePath": "api/SubServicesControllor/{id}",
+    "RelativePath": "api/SubServices/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -880,9 +936,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.SubServicesControllor",
+    "ContainingType": "RahtakApi.Controllers.SubServicesController",
     "Method": "UpdateSubService",
-    "RelativePath": "api/SubServicesControllor/{id}",
+    "RelativePath": "api/SubServices/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -901,15 +957,31 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "RahtakApi.Controllers.SubServicesControllor",
+    "ContainingType": "RahtakApi.Controllers.SubServicesController",
     "Method": "DeleteSubService",
-    "RelativePath": "api/SubServicesControllor/{id}",
+    "RelativePath": "api/SubServices/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RahtakApi.Controllers.SubServicesController",
+    "Method": "GetSubServicesByServiceGroupId",
+    "RelativePath": "api/SubServices/service-group/{serviceGroupId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "serviceGroupId",
         "Type": "System.Int32",
         "IsRequired": true
       }

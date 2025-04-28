@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Courses\\Rwad\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj": {}
+    "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj": {}
   },
   "projects": {
-    "E:\\Courses\\Rwad\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj": {
+    "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Courses\\Rwad\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj",
+        "projectUniqueName": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj",
         "projectName": "RahtakApi.Entities",
-        "projectPath": "E:\\Courses\\Rwad\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj",
+        "projectPath": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi.Entities\\RahtakApi.Entities.csproj",
         "packagesPath": "C:\\Users\\Salma\\.nuget\\packages\\",
-        "outputPath": "E:\\Courses\\Rwad\\RahtakApi\\RahtakApi.Entities\\obj\\",
+        "outputPath": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

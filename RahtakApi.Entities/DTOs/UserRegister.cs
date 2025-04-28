@@ -9,7 +9,6 @@ namespace RahtakApi.Entities.DTOs;
 
 public class UserRegister
 {
-
     [Required]
     [StringLength(50)]
     public string UserName { get; set; } = string.Empty;
@@ -25,10 +24,14 @@ public class UserRegister
 
     [Required]
     [StringLength(100)]
+    [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$",
+        ErrorMessage = "Password must be at least 8 characters long, contain uppercase, lowercase, and numbers.")]
     public string Password { get; set; } = string.Empty;
 
-    [StringLength(50)]
-    public string? Role { get; set; }
+    [Required]
+    [StringLength(100)]
+    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    public string rePassword { get; set; } = string.Empty;
 
     [StringLength(15)]
     public string? TelephoneNumber { get; set; }

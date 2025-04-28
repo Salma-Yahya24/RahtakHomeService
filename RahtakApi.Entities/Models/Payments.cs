@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RahtakApi.Entities.DTOs;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,4 +31,5 @@ public class Payments
     [ForeignKey("PaymentMethod")]
     public int PaymentMethodId { get; set; }
     public PaymentMethod PaymentMethod { get; set; }
+    
 }

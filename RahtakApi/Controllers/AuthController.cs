@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using RahtakApi.Entities.DTOs;
 using RahtakApi.Entities.Interfaces;
 using System;

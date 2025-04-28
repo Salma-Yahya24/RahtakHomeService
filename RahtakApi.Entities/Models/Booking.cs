@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using RahtakApi.Entities.Models;
 using System.ComponentModel.DataAnnotations.Schema;
-
-namespace RahtakApi.Entities.Models;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 public class Booking
 {
@@ -19,6 +17,9 @@ public class Booking
     public DateTime BookingDate { get; set; } = DateTime.Now;
 
     [Required]
+    public DateTime ScheduledDateTime { get; set; }
+
+    [Required]
     [ForeignKey("BookingStatus")]
     public int BookingStatusId { get; set; }
     public BookingStatus? BookingStatus { get; set; }
@@ -27,6 +28,13 @@ public class Booking
     [Column(TypeName = "decimal(18,2)")]
     public decimal TotalBookingPrice { get; set; }
 
-    // ✅ Adding Navigation Property for BookingDetails
+    // إضافة الحجز إلى تفاصيل الحجز
+    [JsonIgnore]  // تجنب التسلسل المترابط
     public ICollection<BookingDetails> BookingDetails { get; set; } = new List<BookingDetails>();
+
+    // حساب TotalBookingPrice بناءً على التفاصيل
+    public void CalculateTotalBookingPrice()
+    {
+        TotalBookingPrice = BookingDetails.Sum(bd => bd.Price * bd.Quantity);
+    }
 }

@@ -9,3 +9,16 @@ E:\Courses\Rwad\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities
 E:\Courses\Rwad\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\refint\RahtakApi.Entities.dll
 E:\Courses\Rwad\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.pdb
 E:\Courses\Rwad\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\ref\RahtakApi.Entities.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\bin\Debug\net8.0\RahtakApi.Entities.deps.json
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\bin\Debug\net8.0\RahtakApi.Entities.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\bin\Debug\net8.0\RahtakApi.Entities.pdb
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.AssemblyInfoInputs.cache
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.AssemblyInfo.cs
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.csproj.CoreCompileInputs.cache
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.sourcelink.json
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\refint\RahtakApi.Entities.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.pdb
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\ref\RahtakApi.Entities.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtakApi.Entities\obj\Debug\net8.0\RahtakApi.Entities.csproj.AssemblyReference.cache

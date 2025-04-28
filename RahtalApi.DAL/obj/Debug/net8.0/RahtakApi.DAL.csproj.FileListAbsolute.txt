@@ -15,3 +15,21 @@ E:\Courses\Rwad\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\refint\RahtakApi.DAL.dl
 E:\Courses\Rwad\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.pdb
 E:\Courses\Rwad\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.genruntimeconfig.cache
 E:\Courses\Rwad\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\ref\RahtakApi.DAL.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\bin\Debug\net8.0\RahtakApi.DAL.deps.json
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\bin\Debug\net8.0\RahtakApi.DAL.runtimeconfig.json
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\bin\Debug\net8.0\RahtakApi.DAL.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\bin\Debug\net8.0\RahtakApi.DAL.pdb
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\bin\Debug\net8.0\RahtakApi.Entities.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\bin\Debug\net8.0\RahtakApi.Entities.pdb
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.csproj.AssemblyReference.cache
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.AssemblyInfoInputs.cache
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.AssemblyInfo.cs
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.csproj.CoreCompileInputs.cache
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.sourcelink.json
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakAp.C338A09E.Up2Date
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\refint\RahtakApi.DAL.dll
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.pdb
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\RahtakApi.DAL.genruntimeconfig.cache
+E:\Courses\Rwad\final project\back\RahtakApi\RahtalApi.DAL\obj\Debug\net8.0\ref\RahtakApi.DAL.dll

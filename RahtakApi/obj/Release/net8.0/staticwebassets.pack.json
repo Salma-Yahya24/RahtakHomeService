@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi\\wwwroot\\images\\serviceGroup\\0da22963-e77d-4df9-a2ab-7fae34396244.png",
+      "PackagePath": "staticwebassets\\images\\serviceGroup\\0da22963-e77d-4df9-a2ab-7fae34396244.png"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.RahtakApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.RahtakApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.RahtakApi.props",
+      "PackagePath": "build\\RahtakApi.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.RahtakApi.props",
+      "PackagePath": "buildMultiTargeting\\RahtakApi.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.RahtakApi.props",
+      "PackagePath": "buildTransitive\\RahtakApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,25 +1,34 @@
 ﻿using Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RahtakApi.Entities.Models;
+using RahtakApi.DAL.Data;
 
 namespace RahtakApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubServicesControllor : ControllerBase
+    public class SubServicesController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly AppDbContext _context;
 
-        public SubServicesControllor(IUnitOfWork unitOfWork)
+        public SubServicesController(IUnitOfWork unitOfWork, AppDbContext context)
         {
             _unitOfWork = unitOfWork;
+            _context = context;
         }
 
         // *********** GET: api/SubServices ***********
         [HttpGet]
         public IActionResult GetSubServices()
         {
-            var subServices = _unitOfWork.SubServices.GetAll();
+            var subServices = _context.SubServices
+                .Include(s => s.ServiceGroups)
+                .Include(s => s.ServiceProvider)
+                    .ThenInclude(p => p.ServiceProviderType)
+                .ToList();
+
             return Ok(subServices);
         }
 
@@ -27,14 +36,33 @@ namespace RahtakApi.Controllers
         [HttpGet("{id}")]
         public IActionResult GetSubService(int id)
         {
-            var subService = _unitOfWork.SubServices.GetById(id);
+            var subService = _context.SubServices
+                .Include(s => s.ServiceGroups)
+                .Include(s => s.ServiceProvider)
+                    .ThenInclude(p => p.ServiceProviderType)
+                .FirstOrDefault(s => s.SubServiceId == id);
 
             if (subService == null)
-            {
                 return NotFound();
-            }
 
             return Ok(subService);
+        }
+
+        // *********** NEW ENDPOINT: GET: api/SubServices/service-group/{serviceGroupId} ***********
+        [HttpGet("service-group/{serviceGroupId}")]
+        public IActionResult GetSubServicesByServiceGroupId(int serviceGroupId)
+        {
+            var subServices = _context.SubServices
+                .Include(s => s.ServiceGroups)
+                .Include(s => s.ServiceProvider)
+                    .ThenInclude(p => p.ServiceProviderType)
+                .Where(s => s.ServiceGroupId == serviceGroupId)
+                .ToList();
+
+            if (subServices == null || subServices.Count == 0)
+                return NotFound("No sub-services found for the given ServiceGroupId.");
+
+            return Ok(subServices);
         }
 
         // *********** POST: api/SubServices ***********
@@ -42,9 +70,7 @@ namespace RahtakApi.Controllers
         public IActionResult CreateSubService([FromBody] SubService subService)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             _unitOfWork.SubServices.Add(subService);
             _unitOfWork.Save();
@@ -57,15 +83,11 @@ namespace RahtakApi.Controllers
         public IActionResult UpdateSubService(int id, [FromBody] SubService subService)
         {
             if (id != subService.SubServiceId)
-            {
                 return BadRequest();
-            }
 
             var existingSubService = _unitOfWork.SubServices.GetById(id);
             if (existingSubService == null)
-            {
                 return NotFound();
-            }
 
             existingSubService.SubServiceName = subService.SubServiceName;
             existingSubService.Description = subService.Description;
@@ -86,9 +108,7 @@ namespace RahtakApi.Controllers
         {
             var subService = _unitOfWork.SubServices.GetById(id);
             if (subService == null)
-            {
                 return NotFound();
-            }
 
             _unitOfWork.SubServices.Delete(subService);
             _unitOfWork.Save();

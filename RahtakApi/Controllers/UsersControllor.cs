@@ -32,7 +32,7 @@ namespace RahtakApi.Controllers
                     user.Gender,
                     user.FullName,
                     user.Email,
-                    user.Role
+                    
                 });
 
             return Ok(users);
@@ -52,7 +52,7 @@ namespace RahtakApi.Controllers
                 user.Gender,
                 user.FullName,
                 user.Email,
-                user.Role
+                
             };
 
             return Ok(userDto);
@@ -61,31 +61,40 @@ namespace RahtakApi.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] UserRegister user)
         {
+            // التحقق من صحة البيانات باستخدام ModelState
             if (!ModelState.IsValid)
-                return BadRequest(new { message = "Invalid input data.", errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)) });
+            {
+                return BadRequest(new
+                {
+                    message = "Invalid input data.",
+                    errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage))
+                });
+            }
 
-            // تحقق مما إذا كان البريد الإلكتروني مسجلاً من قبل
+            // التحقق مما إذا كان البريد الإلكتروني مسجلاً من قبل
             if (_unitOfWork.Users.GetAll().Any(u => u.Email == user.Email))
+            {
                 return Conflict(new { message = "This email is already registered." });
+            }
 
+            // إنشاء كيان المستخدم الجديد
             var newUser = new Users()
             {
                 UserName = user.UserName,
                 FullName = user.FullName,
                 Email = user.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(user.Password), // تشفير كلمة المرور
-                Role = user.Role,
                 TelephoneNumber = user.TelephoneNumber,
                 DateOfBirth = user.DateOfBirth,
                 Gender = user.Gender,
             };
 
+            // إضافة المستخدم إلى قاعدة البيانات
             _unitOfWork.Users.Add(newUser);
             _unitOfWork.Save();
 
             return Ok(new { message = "User registered successfully!" });
         }
-
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLogin user)
         {
@@ -146,7 +155,7 @@ namespace RahtakApi.Controllers
                     new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role),
+                    
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(int.Parse(_configuration["JwtSettings:ExpiryMinutes"])),
                 Issuer = _configuration["JwtSettings:Issuer"],

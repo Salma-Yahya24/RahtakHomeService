@@ -6,10 +6,10 @@
     "version": "v1"
   },
   "paths": {
-    "/api/AddressContollor": {
+    "/api/Address": {
       "get": {
         "tags": [
-          "AddressContollor"
+          "Address"
         ],
         "responses": {
           "200": {
@@ -19,23 +19,23 @@
       },
       "post": {
         "tags": [
-          "AddressContollor"
+          "Address"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Address"
+                "$ref": "#/components/schemas/ShippingAddress"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Address"
+                "$ref": "#/components/schemas/ShippingAddress"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Address"
+                "$ref": "#/components/schemas/ShippingAddress"
               }
             }
           }
@@ -47,10 +47,10 @@
         }
       }
     },
-    "/api/AddressContollor/{id}": {
+    "/api/Address/{id}": {
       "get": {
         "tags": [
-          "AddressContollor"
+          "Address"
         ],
         "parameters": [
           {
@@ -71,7 +71,7 @@
       },
       "put": {
         "tags": [
-          "AddressContollor"
+          "Address"
         ],
         "parameters": [
           {
@@ -88,17 +88,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Address"
+                "$ref": "#/components/schemas/ShippingAddress"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Address"
+                "$ref": "#/components/schemas/ShippingAddress"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Address"
+                "$ref": "#/components/schemas/ShippingAddress"
               }
             }
           }
@@ -111,7 +111,7 @@
       },
       "delete": {
         "tags": [
-          "AddressContollor"
+          "Address"
         ],
         "parameters": [
           {
@@ -265,6 +265,18 @@
         }
       }
     },
+    "/api/Booking/MyBookings": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Booking/{id}": {
       "get": {
         "tags": [
@@ -306,17 +318,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Booking"
+                "$ref": "#/components/schemas/BookingUpdate"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Booking"
+                "$ref": "#/components/schemas/BookingUpdate"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Booking"
+                "$ref": "#/components/schemas/BookingUpdate"
               }
             }
           }
@@ -342,6 +354,37 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/BookSubService": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookSubService"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookSubService"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookSubService"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -743,17 +786,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Payments"
+                "$ref": "#/components/schemas/PaymentDetails"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Payments"
+                "$ref": "#/components/schemas/PaymentDetails"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Payments"
+                "$ref": "#/components/schemas/PaymentDetails"
               }
             }
           }
@@ -806,17 +849,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Payments"
+                "$ref": "#/components/schemas/PaymentDetails"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Payments"
+                "$ref": "#/components/schemas/PaymentDetails"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Payments"
+                "$ref": "#/components/schemas/PaymentDetails"
               }
             }
           }
@@ -991,19 +1034,41 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/ServiceGroups"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceGroups"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceGroups"
+                "required": [
+                  "ServiceGroupName"
+                ],
+                "type": "object",
+                "properties": {
+                  "ServiceGroupName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "ServiceGroupName": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1054,19 +1119,41 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/ServiceGroups"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceGroups"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceGroups"
+                "required": [
+                  "ServiceGroupName"
+                ],
+                "type": "object",
+                "properties": {
+                  "ServiceGroupName": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "ServiceGroupName": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1349,10 +1436,10 @@
         }
       }
     },
-    "/api/SubServicesControllor": {
+    "/api/SubServices": {
       "get": {
         "tags": [
-          "SubServicesControllor"
+          "SubServices"
         ],
         "responses": {
           "200": {
@@ -1362,7 +1449,7 @@
       },
       "post": {
         "tags": [
-          "SubServicesControllor"
+          "SubServices"
         ],
         "requestBody": {
           "content": {
@@ -1390,10 +1477,10 @@
         }
       }
     },
-    "/api/SubServicesControllor/{id}": {
+    "/api/SubServices/{id}": {
       "get": {
         "tags": [
-          "SubServicesControllor"
+          "SubServices"
         ],
         "parameters": [
           {
@@ -1414,7 +1501,7 @@
       },
       "put": {
         "tags": [
-          "SubServicesControllor"
+          "SubServices"
         ],
         "parameters": [
           {
@@ -1454,11 +1541,34 @@
       },
       "delete": {
         "tags": [
-          "SubServicesControllor"
+          "SubServices"
         ],
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/SubServices/service-group/{serviceGroupId}": {
+      "get": {
+        "tags": [
+          "SubServices"
+        ],
+        "parameters": [
+          {
+            "name": "serviceGroupId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1674,58 +1784,19 @@
   },
   "components": {
     "schemas": {
-      "Address": {
+      "BookSubService": {
+        "required": [
+          "scheduledDateTime"
+        ],
         "type": "object",
         "properties": {
-          "addressId": {
+          "subServiceId": {
             "type": "integer",
             "format": "int32"
           },
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "user": {
-            "$ref": "#/components/schemas/Users"
-          },
-          "serviceProviderId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "serviceProvider": {
-            "$ref": "#/components/schemas/ServiceProviders"
-          },
-          "street": {
-            "maxLength": 200,
-            "minLength": 0,
+          "scheduledDateTime": {
             "type": "string",
-            "nullable": true
-          },
-          "city": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "state": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "zipCode": {
-            "maxLength": 20,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "country": {
-            "maxLength": 100,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -1734,6 +1805,7 @@
         "required": [
           "bookingDate",
           "bookingStatusId",
+          "scheduledDateTime",
           "totalBookingPrice",
           "userId"
         ],
@@ -1754,6 +1826,10 @@
             "type": "string",
             "format": "date-time"
           },
+          "scheduledDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
           "bookingStatusId": {
             "type": "integer",
             "format": "int32"
@@ -1764,13 +1840,6 @@
           "totalBookingPrice": {
             "type": "number",
             "format": "double"
-          },
-          "bookingDetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BookingDetails"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1839,12 +1908,43 @@
         },
         "additionalProperties": false
       },
+      "BookingUpdate": {
+        "type": "object",
+        "properties": {
+          "scheduledDateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "ForgotPasswordRequest": {
         "type": "object",
         "properties": {
           "email": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentDetails": {
+        "type": "object",
+        "properties": {
+          "bookingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "address": {
+            "$ref": "#/components/schemas/ShippingAddress"
           }
         },
         "additionalProperties": false
@@ -1863,50 +1963,6 @@
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Payments": {
-        "required": [
-          "amount",
-          "bookingId",
-          "paymentDate",
-          "paymentMethodId",
-          "paymentStatus"
-        ],
-        "type": "object",
-        "properties": {
-          "paymentId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "bookingId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "booking": {
-            "$ref": "#/components/schemas/Booking"
-          },
-          "paymentDate": {
-            "type": "string",
-            "format": "date"
-          },
-          "amount": {
-            "type": "number",
-            "format": "double"
-          },
-          "paymentStatus": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
-          },
-          "paymentMethodId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "paymentMethod": {
-            "$ref": "#/components/schemas/PaymentMethod"
           }
         },
         "additionalProperties": false
@@ -1986,6 +2042,12 @@
             "minLength": 0,
             "type": "string",
             "nullable": true
+          },
+          "imageUrl": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2044,6 +2106,45 @@
           },
           "serviceProviderType": {
             "$ref": "#/components/schemas/ServiceProviderType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingAddress": {
+        "required": [
+          "city",
+          "country",
+          "state",
+          "street",
+          "zipCode"
+        ],
+        "type": "object",
+        "properties": {
+          "street": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "zipCode": {
+            "maxLength": 20,
+            "minLength": 0,
+            "pattern": "^\\d{5}(?:[-\\s]\\d{4})?$",
+            "type": "string"
+          },
+          "country": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2135,6 +2236,7 @@
           "fullName",
           "gender",
           "password",
+          "rePassword",
           "userName"
         ],
         "type": "object",
@@ -2158,13 +2260,13 @@
           "password": {
             "maxLength": 100,
             "minLength": 0,
+            "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d@$!%*?&]{8,}$",
             "type": "string"
           },
-          "role": {
-            "maxLength": 50,
+          "rePassword": {
+            "maxLength": 100,
             "minLength": 0,
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "telephoneNumber": {
             "maxLength": 15,
@@ -2219,12 +2321,6 @@
             "maxLength": 100,
             "minLength": 0,
             "type": "string"
-          },
-          "role": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
           },
           "telephoneNumber": {
             "maxLength": 15,

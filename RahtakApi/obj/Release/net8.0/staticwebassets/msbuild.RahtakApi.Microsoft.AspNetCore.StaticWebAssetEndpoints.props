@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/RahtakApi/images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\serviceGroup\0da22963-e77d-4df9-a2ab-7fae34396244.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7\u002BeInu78kZmA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"30960"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7\u002BeInu78kZmA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 22 Apr 2025 10:38:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/RahtakApi/images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244.sjn6zdpzzz.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\serviceGroup\0da22963-e77d-4df9-a2ab-7fae34396244.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sjn6zdpzzz"},{"Name":"integrity","Value":"sha256-uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7\u002BeInu78kZmA="},{"Name":"label","Value":"_content/RahtakApi/images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"30960"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7\u002BeInu78kZmA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 22 Apr 2025 10:38:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

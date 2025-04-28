@@ -1,6 +1,7 @@
 ﻿using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using RahtakApi.Entities.Models;
+using Microsoft.EntityFrameworkCore; // عشان Include
 
 namespace RahtakApi.Controllers
 {
@@ -15,19 +16,24 @@ namespace RahtakApi.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        // *********** GET: api/BookingDetails ***********
         [HttpGet]
         public IActionResult GetBookingDetails()
         {
-            var bookingDetails = _unitOfWork.BookingDetails.GetAll();
+            var bookingDetails = _unitOfWork.BookingDetails
+                .GetAll()
+                .Include(bd => bd.Booking)
+                .Include(bd => bd.SubService)
+                .Include(bd => bd.ServiceProvider)
+                .ToList();
+
             return Ok(bookingDetails);
         }
 
-        // *********** GET: api/BookingDetails/5 ***********
         [HttpGet("{id}")]
         public IActionResult GetBookingDetail(int id)
         {
-            var bookingDetail = _unitOfWork.BookingDetails.GetById(id);
+            var bookingDetail = _unitOfWork.BookingDetails
+                .GetByIdWithIncludes(id, bd => bd.Booking, bd => bd.SubService, bd => bd.ServiceProvider);
 
             if (bookingDetail == null)
             {
@@ -37,7 +43,6 @@ namespace RahtakApi.Controllers
             return Ok(bookingDetail);
         }
 
-        // *********** POST: api/BookingDetails ***********
         [HttpPost]
         public IActionResult CreateBookingDetail([FromBody] BookingDetails bookingDetail)
         {
@@ -52,7 +57,6 @@ namespace RahtakApi.Controllers
             return CreatedAtAction("GetBookingDetail", new { id = bookingDetail.Id }, bookingDetail);
         }
 
-        // *********** PUT: api/BookingDetails/5 ***********
         [HttpPut("{id}")]
         public IActionResult UpdateBookingDetail(int id, [FromBody] BookingDetails bookingDetail)
         {
@@ -79,7 +83,6 @@ namespace RahtakApi.Controllers
             return NoContent();
         }
 
-        // *********** DELETE: api/BookingDetails/5 ***********
         [HttpDelete("{id}")]
         public IActionResult DeleteBookingDetail(int id)
         {

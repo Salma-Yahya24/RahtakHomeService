@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "Hash": "J8LAIOGty9rw90K+F+R2hJJ2YjR76cdDEsoqQCdG1gY=",
+  "Source": "RahtakApi",
+  "BasePath": "_content/RahtakApi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RahtakApi\\wwwroot",
+      "Source": "RahtakApi",
+      "ContentRoot": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi\\wwwroot\\",
+      "BasePath": "_content/RahtakApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi\\wwwroot\\images\\serviceGroup\\0da22963-e77d-4df9-a2ab-7fae34396244.png",
+      "SourceId": "RahtakApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi\\wwwroot\\",
+      "BasePath": "_content/RahtakApi",
+      "RelativePath": "images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sjn6zdpzzz",
+      "Integrity": "uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7+eInu78kZmA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\serviceGroup\\0da22963-e77d-4df9-a2ab-7fae34396244.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244.png",
+      "AssetFile": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi\\wwwroot\\images\\serviceGroup\\0da22963-e77d-4df9-a2ab-7fae34396244.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30960"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7+eInu78kZmA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 10:38:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7+eInu78kZmA="
+        }
+      ]
+    },
+    {
+      "Route": "images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244.sjn6zdpzzz.png",
+      "AssetFile": "E:\\Courses\\Rwad\\final project\\back\\RahtakApi\\RahtakApi\\wwwroot\\images\\serviceGroup\\0da22963-e77d-4df9-a2ab-7fae34396244.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "30960"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7+eInu78kZmA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 10:38:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sjn6zdpzzz"
+        },
+        {
+          "Name": "label",
+          "Value": "images/serviceGroup/0da22963-e77d-4df9-a2ab-7fae34396244.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uGNKSQsryhJZyXQ5ZYMSd/S/NSGNpmb7+eInu78kZmA="
+        }
+      ]
+    }
+  ]
+}

@@ -25,8 +25,7 @@ public class Users
     [StringLength(100)]
     public string Password { get; set; } = string.Empty;
 
-    [StringLength(50)]
-    public string? Role { get; set; }
+   
 
     [StringLength(15)]
     public string? TelephoneNumber { get; set; }

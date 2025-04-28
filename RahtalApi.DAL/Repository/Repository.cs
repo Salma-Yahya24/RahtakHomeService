@@ -1,49 +1,79 @@
-﻿using RahtakApi.DAL.Data;  // هنا عرفنا الـ DbContext بالطريقة الصحيحة
+﻿using RahtakApi.DAL.Data;
 using Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using System.Reflection;
 
-namespace Repository;
-
-public class Repository<T> : IRepository<T> where T : class
+namespace Repository
 {
-    private readonly AppDbContext _context;
-
-    public Repository(AppDbContext context)
+    public class Repository<T> : IRepository<T> where T : class
     {
-        _context = context;
-    }
+        private readonly AppDbContext _context;
+        private readonly DbSet<T> _dbSet;
+        private readonly string _keyName;
 
-    public void Add(T entity)
-    {
-        _context.Set<T>().Add(entity);
-    }
-
-    public void Delete(T entity)
-    {
-        _context.Set<T>().Remove(entity);
-    }
-
-    public void Delete(int id)
-    {
-        var entity = GetById(id);
-        if (entity != null)
+        public Repository(AppDbContext context)
         {
-            Delete(entity);
+            _context = context;
+            _dbSet = _context.Set<T>();
+
+            // 🔵 محاولة اكتشاف الـ Key تلقائيًا (أو fallback إلى "Id")
+            _keyName = _context.Model.FindEntityType(typeof(T))
+                           ?.FindPrimaryKey()
+                           ?.Properties
+                           ?.Select(x => x.Name)
+                           ?.FirstOrDefault() ?? "Id";
         }
-    }
 
-    public IEnumerable<T> GetAll()
-    {
-        return _context.Set<T>().ToList();
-    }
+        public IQueryable<T> GetAll()
+        {
+            return _dbSet.AsNoTracking();
+        }
 
-    public T GetById(int id)
-    {
-        return _context.Set<T>().Find(id)!;  // استخدمت ! عشان تتأكدي إن النتيجة مش Null
-    }
+        public T? GetById(int id)
+        {
+            return _dbSet.Find(id);
+        }
 
-    public void Update(T entity)
-    {
-        _context.Set<T>().Update(entity);
+        public void Add(T entity)
+        {
+            _dbSet.Add(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _dbSet.Update(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            _dbSet.Remove(entity);
+        }
+
+        public void Delete(int id)
+        {
+            var entity = GetById(id);
+            if (entity != null)
+            {
+                Delete(entity);
+            }
+        }
+
+        public IQueryable<T> FindAll(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.Where(predicate).AsNoTracking();
+        }
+
+        public T? GetByIdWithIncludes(int id, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _dbSet.AsQueryable();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return query.FirstOrDefault(e => EF.Property<int>(e, _keyName) == id);
+        }
     }
 }

@@ -26,14 +26,12 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // العلاقة بين ServiceProviders و ServiceProviderType
         modelBuilder.Entity<ServiceProviders>()
             .HasOne(sp => sp.ServiceProviderType)
             .WithMany()
             .HasForeignKey(sp => sp.ServiceProviderTypeId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // العلاقة بين BookingDetails و الكيانات الأخرى
         modelBuilder.Entity<BookingDetails>()
             .HasOne(bd => bd.SubService)
             .WithMany()
@@ -44,7 +42,7 @@ public class AppDbContext : DbContext
             .HasOne(bd => bd.Booking)
             .WithMany(b => b.BookingDetails)
             .HasForeignKey(bd => bd.BookingId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Cascade); // ✅ تعديلنا هنا
 
         modelBuilder.Entity<BookingDetails>()
             .HasOne(bd => bd.ServiceProvider)
@@ -52,7 +50,6 @@ public class AppDbContext : DbContext
             .HasForeignKey(bd => bd.ServiceProviderId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // العلاقة بين SubService و ServiceProvider
         modelBuilder.Entity<SubService>()
             .HasOne(ss => ss.ServiceProvider)
             .WithMany()

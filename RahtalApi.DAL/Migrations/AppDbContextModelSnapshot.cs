@@ -22,6 +22,38 @@ namespace RahtakApi.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Booking", b =>
+                {
+                    b.Property<int>("BookingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"));
+
+                    b.Property<DateTime>("BookingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("BookingStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ScheduledDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalBookingPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BookingId");
+
+                    b.HasIndex("BookingStatusId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bookings");
+                });
+
             modelBuilder.Entity("RahtakApi.Entities.Models.Address", b =>
                 {
                     b.Property<int>("AddressId")
@@ -63,35 +95,6 @@ namespace RahtakApi.DAL.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Addresses");
-                });
-
-            modelBuilder.Entity("RahtakApi.Entities.Models.Booking", b =>
-                {
-                    b.Property<int>("BookingId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingId"));
-
-                    b.Property<DateTime>("BookingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("BookingStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalBookingPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BookingId");
-
-                    b.HasIndex("BookingStatusId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("RahtakApi.Entities.Models.BookingDetails", b =>
@@ -241,6 +244,10 @@ namespace RahtakApi.DAL.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("ServiceGroupName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -345,10 +352,6 @@ namespace RahtakApi.DAL.Migrations
                     b.Property<DateTime?>("ResetCodeExpiration")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Role")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("TelephoneNumber")
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
@@ -399,22 +402,7 @@ namespace RahtakApi.DAL.Migrations
                     b.ToTable("ServiceProviders");
                 });
 
-            modelBuilder.Entity("RahtakApi.Entities.Models.Address", b =>
-                {
-                    b.HasOne("ServiceProviders", "ServiceProvider")
-                        .WithMany()
-                        .HasForeignKey("ServiceProviderId");
-
-                    b.HasOne("RahtakApi.Entities.Models.Users", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("ServiceProvider");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("RahtakApi.Entities.Models.Booking", b =>
+            modelBuilder.Entity("Booking", b =>
                 {
                     b.HasOne("RahtakApi.Entities.Models.BookingStatus", "BookingStatus")
                         .WithMany()
@@ -433,12 +421,27 @@ namespace RahtakApi.DAL.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("RahtakApi.Entities.Models.Address", b =>
+                {
+                    b.HasOne("ServiceProviders", "ServiceProvider")
+                        .WithMany()
+                        .HasForeignKey("ServiceProviderId");
+
+                    b.HasOne("RahtakApi.Entities.Models.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ServiceProvider");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("RahtakApi.Entities.Models.BookingDetails", b =>
                 {
-                    b.HasOne("RahtakApi.Entities.Models.Booking", "Booking")
+                    b.HasOne("Booking", "Booking")
                         .WithMany("BookingDetails")
                         .HasForeignKey("BookingId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ServiceProviders", "ServiceProvider")
@@ -462,7 +465,7 @@ namespace RahtakApi.DAL.Migrations
 
             modelBuilder.Entity("RahtakApi.Entities.Models.Payments", b =>
                 {
-                    b.HasOne("RahtakApi.Entities.Models.Booking", "Booking")
+                    b.HasOne("Booking", "Booking")
                         .WithMany()
                         .HasForeignKey("BookingId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -528,7 +531,7 @@ namespace RahtakApi.DAL.Migrations
                     b.Navigation("ServiceProviderType");
                 });
 
-            modelBuilder.Entity("RahtakApi.Entities.Models.Booking", b =>
+            modelBuilder.Entity("Booking", b =>
                 {
                     b.Navigation("BookingDetails");
                 });

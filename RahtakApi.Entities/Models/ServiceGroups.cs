@@ -14,4 +14,7 @@ public class ServiceGroups
 
     [StringLength(500)]
     public string Description { get; set; } = string.Empty;
+
+    [StringLength(255)]
+    public string? ImageUrl { get; set; }
 }
